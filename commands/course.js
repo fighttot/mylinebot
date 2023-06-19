@@ -12,7 +12,7 @@ export default async (event) => {
 
     $('#acgs-anime-list .anime-type-comic').each(function (i) {
       if (i >= 12) return false
-      if (!$(this).find('.anime_streams .stream-sites a').text().includes('巴哈')) {
+      if ($(this).find('.anime_streams .stream-sites a').text().includes('巴哈')) {
         const bubble = JSON.parse(JSON.stringify(template))
         bubble.hero.url = $(this).find('.anime_cover_image img').attr('src')
         bubble.body.contents[0].text = $(this).find('h3.entity_localized_name').text()
