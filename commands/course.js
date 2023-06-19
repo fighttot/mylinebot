@@ -14,10 +14,11 @@ export default async (event) => {
       if (i >= 12) return false
       if ($(this).find('.anime_streams .stream-sites a').text().includes('巴哈')) {
         const bubble = JSON.parse(JSON.stringify(template))
-        bubble.hero.url = $(this).find('.anime_cover_image img').attr('src')
-        bubble.body.contents[0].text = $(this).find('h3.entity_localized_name').text()
-        bubble.body.contents[1].contents[0].text = $(this).find('.anime_info .anime_specs .time_today').text()
-        bubble.body.contents[2].contents[0].contents[0].text = $(this).find('.anime_data .anime_txts .anime_story').text() || '無'
+        bubble.header.contents[0].contents[0].url = $(this).find('.anime_cover_image img').attr('src')
+        bubble.body.contents[0].contents[0].contents[0].text = $(this).find('h3.entity_localized_name').text()
+        bubble.body.contents[0].contents[0].contents[1].text = $(this).find('.anime_info .anime_specs .time_today').text()
+
+        bubble.body.contents[0].contents[1].contents[0].contents[0].text = $(this).find('.anime_data .anime_txts .anime_story').text() || '無'
         arr.push(bubble)
       }
     })
