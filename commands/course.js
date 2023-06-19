@@ -9,10 +9,11 @@ export default async (event) => {
     const { data } = await axios.get('https://acgsecrets.hk/bangumi/202304/')
     const $ = cheerio.load(data)
     const arr = []
-
-    $('#acgs-anime-list .anime-type-comic').each(function (i) {
-      if (i >= 12) return false
-      if ($(this).find('.anime_streams .stream-sites a').text().includes('巴哈')) {
+    let i = 0
+    $('#acgs-anime-list .anime-type-comic').each(function () {
+      if (!$(this).find('.anime_streams .stream-sites a').text().includes('巴哈')) {
+        i++
+        if (i > 12) return false
         const bubble = JSON.parse(JSON.stringify(template))
         bubble.header.contents[0].contents[0].url = $(this).find('.anime_cover_image img').attr('src')
         bubble.body.contents[0].contents[0].contents[0].text = $(this).find('h3.entity_localized_name').text()
