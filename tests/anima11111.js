@@ -6,12 +6,16 @@ const main = async () => {
   try {
     const { data } = await axios.get('https://acgsecrets.hk/bangumi/202304/')
     const $ = cheerio.load(data)
-    $('#acgs-anime-list .anime-type-comic').each(function () {
-      if (!$(this).find('.anime_streams .stream-sites a').text().includes('巴哈')) {
-        console.log($(this).find('h3.entity_localized_name').text())
-        console.log($(this).find('.anime_cover_image img').attr('src'))
-        console.log($(this).find('.anime_info .anime_specs .time_today').text())
-        console.log($(this).find('.anime_data .anime_txts .anime_story').text())
+    // const cdate = new Date()
+    $('#acgs-anime-list .acgs-anime-block').each(function () {
+      if ($(this).find('.anime_streams .stream-sites a').text().includes('巴哈')) {
+        // console.log($(this).find('.anime_cover_image img').attr('src'))
+        // console.log($(this).find('h3.entity_localized_name').text())
+        // console.log($(this).find('.anime_info .anime_specs .anime_tag tags').text())
+        // console.log($(this).find('.anime_data .anime_streams .stream-area .stream-sites a').text())
+        if ($(this).find('.anime_data .anime_streams span').text().includes('台灣')) {
+          console.log($(this).find('.anime_data .stream-sites:nth-child(2) a').text())
+        }
       }
     })
     // .hasClass

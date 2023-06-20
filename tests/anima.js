@@ -10,7 +10,7 @@ const main = async () => {
     const $ = cheerio.load(data)
     $('#acgs-anime-list .anime-type-comic').each(function () {
       if (!$(this).find('.anime_streams .stream-sites a').text().includes('巴哈')) {
-        console.log($(this).find('h3.entity_localized_name').text())
+        console.log($(this.anime_data.anime_streams.stream - area.stream - sites a).text())
       }
     })
   } catch (error) {
