@@ -35,7 +35,7 @@ export default async (event) => {
         } else if (cdate.getDay() === 1) {
           if ($(this).find('.anime_info .anime_specs .time_tomorrow').text().includes('每週一')) { arr.push(bubble) }
         } else if (cdate.getDay() === 2) {
-          if ($(this).find('.anime_info .anime_specs .time_tomorrow').text().includes('每週日')) { arr.push(bubble) }
+          if ($(this).find('.anime_info .anime_specs .time_tomorrow').text().includes('每週二')) { arr.push(bubble) }
         } else if (cdate.getDay() === 3) {
           if ($(this).find('.anime_info .anime_specs .time_tomorrow').text().includes('每週三')) { arr.push(bubble) }
         } else if (cdate.getDay() === 4) {
